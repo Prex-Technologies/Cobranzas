@@ -1,0 +1,9 @@
+{
+	"name": "Cobranzas",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bed8ccd1-957e-4801-a429-2202ad26272b",
+		"tenantId": "b5e6ccf9-6178-4d57-bd5b-8f09855aa9e5"
+	}
+}
