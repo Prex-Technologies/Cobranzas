@@ -7,7 +7,71 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "Zona",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provincia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ciudad",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TipoIdentificacion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Identificacion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Nombre",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sexo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AnioNacimiento",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MesNacimiento",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DiaNacimiento",
+				"type": "nchar"
+			},
+			{
+				"name": "Nacionalidad",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Poblacion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Edad",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FechaVacunacion",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "Vacunacion"
