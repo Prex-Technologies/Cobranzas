@@ -92,7 +92,8 @@
 				"          Email = Column_15,",
 				"          Poblacion = Column_16,",
 				"          Edad = Column_17,",
-				"          FechaVacunacion = Column_18",
+				"          FechaVacunacion = Column_18,",
+				"          Celular = Column_14",
 				"     )) ~> bddSQL"
 			]
 		}
