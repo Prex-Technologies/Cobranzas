@@ -1,0 +1,30 @@
+{
+	"name": "PagadosXls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ABS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Pagados",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "CNT_Registro_Deudores_Pagados.xlsx",
+				"container": "prex"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Fecha (YYYY-MM-DD)",
+				"type": "String"
+			},
+			{
+				"name": "Número de Cédula",
+				"type": "String"
+			}
+		]
+	}
+}
