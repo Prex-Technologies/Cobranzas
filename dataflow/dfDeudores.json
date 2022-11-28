@@ -42,6 +42,7 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     format: 'table',",
+				"     postSQLs:['INSERT INTO [dbo].[Deudores]\\n           ([Cedula]\\n           ,[FechaIngreso]\\n           ,[Estado])\\n   select cedula, fecha FechaIngreso , \\'Ingresado\\'\\n   from DeudoresDiario\\n   where cedula not in (select Cedula from Deudores)','Delete from DeudoresDiario'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
