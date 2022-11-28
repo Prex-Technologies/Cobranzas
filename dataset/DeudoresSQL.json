@@ -1,5 +1,5 @@
 {
-	"name": "DesudoresSQL",
+	"name": "DeudoresSQL",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlDataBase",
