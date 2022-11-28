@@ -78,7 +78,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Vacunacion"
+			"table": "Clientes"
 		}
 	}
 }
