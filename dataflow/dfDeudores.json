@@ -38,7 +38,7 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          {Fecha (YYYY-MM-DD)} as timestamp,",
+				"          {Fecha (YYYY-MM-DD)} as timestamp 'yyyy-MM-dd',",
 				"          {Número de Cédula} as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
