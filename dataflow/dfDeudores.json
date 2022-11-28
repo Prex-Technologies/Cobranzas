@@ -12,7 +12,15 @@
 					"name": "DeudoresXls"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DeudoresSQL",
+						"type": "DatasetReference"
+					},
+					"name": "DeudoresDiario"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
@@ -21,7 +29,26 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> DeudoresXls"
+				"     ignoreNoFilesFound: false) ~> DeudoresXls",
+				"DeudoresXls sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Id as integer,",
+				"          Fecha as timestamp,",
+				"          Cedula as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Fecha = {Fecha (YYYY-MM-DD)},",
+				"          Cedula = {Número de Cédula}",
+				"     )) ~> DeudoresDiario"
 			]
 		}
 	}
