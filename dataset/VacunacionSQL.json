@@ -46,7 +46,7 @@
 			},
 			{
 				"name": "DiaNacimiento",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Nacionalidad",
@@ -70,6 +70,10 @@
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
+			},
+			{
+				"name": "Celular",
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
