@@ -1,0 +1,28 @@
+{
+	"name": "dfDeudores",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DeudoresXls",
+						"type": "DatasetReference"
+					},
+					"name": "DeudoresXls"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {Fecha (YYYY-MM-DD)} as date,",
+				"          {Número de Cédula} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> DeudoresXls"
+			]
+		}
+	}
+}
