@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "DeudoresXls"
+				},
+				{
+					"dataset": {
+						"referenceName": "PagadosXls",
+						"type": "DatasetReference"
+					},
+					"name": "PagadosXls"
 				}
 			],
 			"sinks": [
@@ -19,6 +26,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "DeudoresDiario"
+				},
+				{
+					"dataset": {
+						"referenceName": "DeudoresSQL",
+						"type": "DatasetReference"
+					},
+					"name": "PagadosSql"
 				}
 			],
 			"transformations": [],
@@ -30,6 +44,13 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> DeudoresXls",
+				"source(output(",
+				"          {Fecha (YYYY-MM-DD)} as timestamp,",
+				"          {Número de Cédula} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> PagadosXls",
 				"DeudoresXls sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -49,7 +70,27 @@
 				"     mapColumn(",
 				"          Fecha = {Fecha (YYYY-MM-DD)},",
 				"          Cedula = {Número de Cédula}",
-				"     )) ~> DeudoresDiario"
+				"     )) ~> DeudoresDiario",
+				"PagadosXls sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Id as integer,",
+				"          Fecha as timestamp,",
+				"          Cedula as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     postSQLs:['Update Deudores\\nset FechaRegistroPago = dd.Fecha, Estado = \\'Pagado\\'\\nfrom DeudoresDiario dd\\nwhere dd.Cedula = Deudores.Cedula\\n','delete from DeudoresDiario'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Fecha = {Fecha (YYYY-MM-DD)},",
+				"          Cedula = {Número de Cédula}",
+				"     )) ~> PagadosSql"
 			]
 		}
 	}
