@@ -1,0 +1,32 @@
+{
+	"name": "DesudoresSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlDataBase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Fecha",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Cedula",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DeudoresDiario"
+		}
+	}
+}
